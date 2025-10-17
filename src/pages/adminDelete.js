@@ -50,7 +50,7 @@ function AdminManage() {
               <tr>
                 <th className="py-2 px-3">#</th>
                 <th className="py-2 px-3">Tên</th>
-                <th className="py-2 px-3">Điện thoại</th>
+                <th className="py-2 px-3">Phòng chụp</th>
                 <th className="py-2 px-3">Trạng thái</th>
                 <th className="py-2 px-3">Thời gian</th>
                 <th className="py-2 px-3 text-center">Thao tác</th>
