@@ -7,7 +7,7 @@ function Body() {
   const [myNumber, setMyNumber] = useState(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-
+  const [isDisabled, setIsDisabled] = useState(false);
   useEffect(() => {
     socket.on("status", (data) => setCurrent(data.currentServing));
     socket.on("new-number", (data) => console.log("new number", data));
@@ -27,7 +27,11 @@ function Body() {
       }
     );
     const j = await res.json();
-    if (j.success || j.number) setMyNumber(j.number);
+    if (j.success || j.number) {
+        setMyNumber(j.number);  
+        setIsDisabled(true); 
+    }
+        
   };
 
   return (
@@ -63,9 +67,14 @@ function Body() {
           />
           <button
             onClick={takeNumber}
-            className="w-full bg-pink-400 text-white py-2 rounded-lg font-medium hover:bg-pink-600 transition"
+             disabled={isDisabled}
+            className={`w-full bg-pink-400 text-white py-2 rounded-lg font-medium  transition ${
+                isDisabled
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-pink-400 hover:bg-pink-600"
+              }`}
           >
-            Lấy số
+            {isDisabled ? "Đã lấy số" : "Lấy số"}
           </button>
 
           {/* Hiển thị số của bạn */}
