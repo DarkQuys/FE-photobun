@@ -41,15 +41,6 @@ function Body() {
           Hệ thống lấy số thứ tự PHOTOBUN'
         </h2>
 
-        {/* Khu hiển thị số đang phục vụ */}
-        <div className="text-center border border-blue-100 rounded-xl p-6 bg-blue-50">
-          <p className="text-gray-600">Số đang phục vụ</p>
-          <p className="text-6xl font-extrabold text-pink-600 my-2">
-            {current}
-          </p>
-          <p className="text-sm text-gray-500">Cập nhật theo thời gian thực</p>
-        </div>
-
         {/* Form lấy số */}
         <div className="border border-gray-100 rounded-xl p-5 space-y-3 shadow-sm">
           <h3 className="text-lg font-semibold text-gray-700 mb-2">Lấy số</h3>
@@ -62,13 +53,13 @@ function Body() {
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="Số điện thoại"
+            placeholder="Phòng muốn chụp"
             className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             onClick={takeNumber}
              disabled={isDisabled}
-            className={`w-full bg-pink-400 text-white py-2 rounded-lg font-medium  transition ${
+            className={`w-full text-white py-2 rounded-lg font-medium  transition ${
                 isDisabled
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-pink-400 hover:bg-pink-600"
@@ -88,6 +79,17 @@ function Body() {
             </div>
           )}
         </div>
+
+        {/* Khu hiển thị số đang phục vụ */}
+        <div className="text-center border border-blue-100 rounded-xl p-6 bg-blue-50">
+          <p className="text-gray-600">Số đang phục vụ</p>
+          <p className="text-6xl font-extrabold text-pink-600 my-2">
+            {current}
+          </p>
+          <p className="text-sm text-gray-500">Cập nhật theo thời gian thực</p>
+        </div>
+
+       
       </div>
 
       <footer className="mt-6 text-gray-400 text-sm">

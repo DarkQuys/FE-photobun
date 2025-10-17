@@ -74,7 +74,7 @@ function Admin() {
                 <tr>
                   <th className="py-2 px-3">Số</th>
                   <th className="py-2 px-3">Tên</th>
-                  <th className="py-2 px-3">Điện thoại</th>
+                  <th className="py-2 px-3">Phòng chụp</th>
                 </tr>
               </thead>
               <tbody>
