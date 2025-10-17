@@ -6,6 +6,8 @@ const socket = io(process.env.REACT_APP_API_URL || "http://localhost:4000");
 function Admin() {
   const [current, setCurrent] = useState(0);
   const [waiting, setWaiting] = useState([]);
+  const [currentName, setCurrentName] = useState(""); 
+  const [currentPhong, setCurrentPhong] = useState(""); 
   const api = process.env.REACT_APP_API_URL || "http://localhost:4000";
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,6 +27,9 @@ function Admin() {
       fetch(`${api}/api/waiting`).then((r) => r.json()),
     ]);
     setCurrent(statusRes.currentServing);
+    console.log('dđ',statusRes)
+    setCurrentName(statusRes.name || "");
+    setCurrentPhong(statusRes.phone || "");
     setWaiting(waitingRes);
   };
 
@@ -55,6 +60,11 @@ function Admin() {
           <p className="text-6xl font-extrabold text-pink-400 my-2">
             {current}
           </p>
+          {currentName && (
+        <p className="text-lg font-semibold text-gray-700">
+        {currentName}(Room : {currentPhong})
+        </p>
+        )}
           <button
             onClick={advance}
             className="mt-3 px-6 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-700 transition"
