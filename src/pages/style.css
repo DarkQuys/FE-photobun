@@ -1,0 +1,26 @@
+.neon-text {
+  /* color: #ff7ac8;
+  text-shadow:
+    0 0 2px #ff7ac8,
+    0 0 6px #ff7ac8,
+    0 0 12px #ff4fae,
+    0 0 20px rgba(255, 79, 174, 0.6); */
+    color: #ffffff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 8px #ff7ac8,
+    0 0 16px #ff4fae,
+    0 0 30px rgba(255, 79, 174, 0.7);
+  font-family: "Poppins", cursive;
+  letter-spacing: 2px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* .neon-text:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 8px #ff7ac8,
+    0 0 16px #ff4fae,
+    0 0 30px rgba(255, 79, 174, 0.7);
+} */

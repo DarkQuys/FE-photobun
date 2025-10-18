@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.neon-text {
+  color: #ff69b4;
+  text-shadow:
+    0 0 5px #ff69b4,
+    0 0 10px #ff69b4,
+    0 0 20px #ff1493,
+    0 0 40px #ff1493,
+    0 0 80px #ff1493,
+    0 0 90px #ff69b4,
+    0 0 100px #ff69b4;
+  font-family: "Poppins", cursive;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.neon-text:hover {
+  color: #fff;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff69b4,
+    0 0 30px #ff1493,
+    0 0 40px #ff1493;
+}

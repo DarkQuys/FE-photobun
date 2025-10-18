@@ -1,5 +1,7 @@
+import AdminDashboard from "../pages/AdminDashboard"
 import AdminManage from "../pages/adminDelete"
 import Admin from "../pages/adminPage"
+import AdminRooms from "../pages/adminRoom"
 import Body from "../pages/body"
 
 export const routes = [
@@ -21,6 +23,16 @@ export const routes = [
      {
         path: '/admin-manager',
         page: AdminManage,
+        isShowHeader :true 
+    },
+     {
+        path: '/admin-manager2',
+        page: AdminRooms,
+        isShowHeader :true 
+    },
+      {
+        path: '/admin-admindashboard',
+        page: AdminDashboard,
         isShowHeader :true 
     },
 ]

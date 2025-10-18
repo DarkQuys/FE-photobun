@@ -29,8 +29,9 @@ function Admin() {
     setCurrent(statusRes.currentServing);
     console.log('dđ',statusRes)
     setCurrentName(statusRes.name || "");
-    setCurrentPhong(statusRes.phone || "");
+    setCurrentPhong(statusRes.room || "");
     setWaiting(waitingRes);
+    console.log('ww' ,waitingRes)
   };
 
   const advance = async () => {
@@ -96,7 +97,7 @@ function Admin() {
                       </td>
                       <td className="py-2 px-3">{w.name || "-"}</td>
                       <td className="py-2 px-3 text-gray-600">
-                        {w.phone || "-"}
+                        {w.room || "-"}
                       </td>
                     </tr>
                   ))
