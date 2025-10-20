@@ -188,7 +188,7 @@ function AdminManage() {
   };
 
   const updateStatus = async (id, status) => {
-    if (!window.confirm("Khi khách vào vòng thì mới ấn 'OK' ")) return;
+    if (!window.confirm("Khi khách vào phòng thì mới ấn 'OK' ")) return;
     const res = await fetch(`${api}/api/update-status/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

@@ -149,6 +149,7 @@ function Body() {
   const [phone, setPhone] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [room, setRoom] = useState("");
+  const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
     socket.on("status", (data) => setCurrent(data.currentServing));
@@ -160,23 +161,48 @@ function Body() {
   }, []);
 
   const takeNumber = async () => {
+    if (isLoading || isDisabled) return;
     if (!room) {
       alert("Vui lòng chọn phòng");
       return;
     }
-    const res = await fetch(
-      (process.env.REACT_APP_API_URL || "http://localhost:3001") + "/api/take",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, room }),
+    setIsLoading(true);
+
+
+    try {
+      const res = await fetch(
+        (process.env.REACT_APP_API_URL || "http://localhost:3001") + "/api/take",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, phone, room }),
+        }
+      );
+
+      const j = await res.json();
+      if (j.success || j.number) {
+        setMyNumber(j.number);
+        setIsDisabled(true);
       }
-    );
-    const j = await res.json();
-    if (j.success || j.number) {
-      setMyNumber(j.number);
-      setIsDisabled(true);
+    } catch (error) {
+      console.error("Lỗi khi lấy số:", error);
+      alert("Đã xảy ra lỗi. Vui lòng thử lại!");
+    } finally {
+      setIsLoading(false); // 🟢 Dừng loading
     }
+    // const res = await fetch(
+    //   (process.env.REACT_APP_API_URL || "http://localhost:3001") + "/api/take",
+    //   {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ name, phone, room }),
+    //   }
+    // );
+    // const j = await res.json();
+    // if (j.success || j.number) {
+    //   setMyNumber(j.number);
+    //   setIsDisabled(true);
+    // }
   };
 
   return (
@@ -214,7 +240,7 @@ function Body() {
             <option value="phong3">Phòng 3</option>
           </select>
 
-          <button
+          {/* <button
             onClick={takeNumber}
             disabled={isDisabled}
             className={`w-full text-white py-3 rounded-lg font-medium text-lg transition ${
@@ -224,6 +250,25 @@ function Body() {
             }`}
           >
             {isDisabled ? "Đã lấy số" : "Lấy số"}
+          </button> */}
+          <button
+            onClick={takeNumber}
+            disabled={isDisabled || isLoading}
+            className={`w-full text-white py-3 rounded-lg font-medium text-lg transition flex items-center justify-center ${
+              isDisabled || isLoading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-pink-500 hover:bg-pink-600"
+            }`}
+          >
+            {isLoading ? (
+              <>
+                <span className="loader mr-2"></span> Đang xử lý...
+              </>
+            ) : isDisabled ? (
+              "Đã lấy số"
+            ) : (
+              "Lấy số"
+            )}
           </button>
 
           {myNumber && (

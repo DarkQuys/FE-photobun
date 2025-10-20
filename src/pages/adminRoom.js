@@ -133,9 +133,9 @@ function AdminRooms() {
   const socket = io(api);
 
   // mô tả phòng
-  
+
   const roomDescriptions = {
-  phong1: "Phòng 1 – phòng chụp với tông đỏ nổi bật và ánh sáng mềm mại. Mọi khung hình đều toát lên sự quyến rũ, sang trọng và cá tính riêng biệt.",
+  phong1: "Phòng 1 – Phòng chụp với tông đỏ nổi bật và ánh sáng mềm mại. Mọi khung hình đều toát lên sự quyến rũ, sang trọng và cá tính riêng biệt.",
   phong2: "Phòng 2 – Phòng chụp với background đa phong cách. Màu sắc tươi tắn và ánh sáng rực rỡ giúp ghi lại những khoảnh khắc tràn đầy năng lượng.",
   phong3: "Phòng 3 – Phòng ‘Gấu’ nổi bật ở vị trí trên cao, mang phong cách vintage ấm áp. view bao quát,lý tưởng cho bộ ảnh nghệ thuật độc đáo.",
 };
@@ -183,7 +183,7 @@ function AdminRooms() {
             Thông tin Wi-Fi
           </h3>
           <p className="text-gray-700">
-            <strong>Tên Wi-Fi:</strong> PhotoBun1
+            <strong>Tên Wi-Fi:</strong> PHOTOBUN 1
           </p>
           <p className="text-gray-700">
             <strong>Mật khẩu:</strong>{" "}

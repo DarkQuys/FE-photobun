@@ -2,6 +2,7 @@ import AdminDashboard from "../pages/AdminDashboard"
 import AdminManage from "../pages/adminDelete"
 import Admin from "../pages/adminPage"
 import AdminRooms from "../pages/adminRoom"
+import AdminStats from "../pages/AdminStats"
 import Body from "../pages/body"
 
 export const routes = [
@@ -33,6 +34,11 @@ export const routes = [
       {
         path: '/admin-admindashboard',
         page: AdminDashboard,
+        isShowHeader :true 
+    },
+    {
+        path: '/myadmin-stats',
+        page: AdminStats,
         isShowHeader :true 
     },
 ]
