@@ -40,7 +40,6 @@ const fetchStats = async () => {
   try {
     const res = await fetch(`${api}/api/stats?date=${date}`);
     const data = await res.json();
-    console.log("hahu",data.details[0].stats)
     if (!data || !data.details[0].stats) {
       setStats([]);
       setTotalShots(0);
@@ -48,7 +47,7 @@ const fetchStats = async () => {
       return;
     }
 
-    // ✅ Chuyển object stats -> mảng
+    //Chuyển object stats -> mảng
     const formattedStats = [
       { room: "phong1", ...data.details[0].stats.phong1 },
       { room: "phong2", ...data.details[0].stats.phong2 },
@@ -56,7 +55,6 @@ const fetchStats = async () => {
     ];
    
     setStats(formattedStats);
-     console.log("dung" , formattedStats)
     setTotalShots(data.totalShots || 0);
     setTotalIncome(data.totalIncome || 0);
   } catch (err) {
